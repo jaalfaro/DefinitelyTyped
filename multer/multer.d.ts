@@ -14,6 +14,7 @@ declare namespace Express {
     }
 
     namespace Multer {
+        import ReadableStream = NodeJS.ReadableStream;
         export interface File {
             /** Field name specified in the form */
             fieldname: string;
@@ -32,6 +33,8 @@ declare namespace Express {
             /** Location of the uploaded file (DiskStorage) */
             path: string;
             /** A Buffer of the entire file (MemoryStorage) */
+            stream: ReadableStream;
+            /** A readable stream of the file (StorageEngine) */
             buffer: Buffer;
         }
     }
